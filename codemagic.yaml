@@ -15,9 +15,9 @@ workflows:
         PACKAGE_NAME: 'com.awesomeproject'
       # node: latest
     scripts:
-      # - name: Install npm dependencies
-      #   script: |
-      #     yarn install
+      - name: Install npm dependencies
+        script: |
+          npm install @react-native/gradle-plugin
       - name: Set Android SDK location
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
@@ -41,6 +41,9 @@ workflows:
               -PversionCode=$UPDATED_BUILD_NUMBER \
               -PversionName=1.0.$UPDATED_BUILD_NUMBER
           # ./gradlew assembleStagingRelease \
+    caching:
+      paths:
+        - node_modules
     artifacts:
       - android/app/build/outputs/**/*.aab
       - android/app/build/outputs/**/*.apk
