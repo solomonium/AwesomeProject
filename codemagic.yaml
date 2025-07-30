@@ -13,7 +13,7 @@ workflows:
         # - google_credentials
       vars:
         PACKAGE_NAME: 'com.awesomeproject'
-      # node: latest
+      node: 18
     scripts:
       - name: Install npm dependencies
         script: |
