@@ -41,8 +41,8 @@ workflows:
               -PversionCode=$UPDATED_BUILD_NUMBER \
               -PversionName=1.0.$UPDATED_BUILD_NUMBER
           # ./gradlew assembleStagingRelease \
-    caching:
-      paths:
+    cache:
+      cache_paths:
         - node_modules
     artifacts:
       - android/app/build/outputs/**/*.aab
